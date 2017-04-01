@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 from collections import Counter
 
 # upload data
-dataframe = pd.read_csv("train_visord-orb.csv")
+dataframe = pd.read_csv("input/train-kaggle.csv")
 
 # convert dataframe to matrix
 
@@ -82,7 +82,7 @@ def softmax(label_list_predict, label_list):
 
 # Training of the model
 
-num_iterations = 100000
+num_iterations = 8000
 set_up_weights(50 , unique_label)
 for i in range(num_iterations):
     loss = Perceptron(features_train, label_train, softmax, lr=0.001, reg=1e-5)

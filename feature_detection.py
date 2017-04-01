@@ -10,7 +10,8 @@ from sklearn.neural_network import MLPClassifier
 img_path = 'input/images/'
 train = pd.read_csv('input/train.csv')
 species = train.species.sort_values().unique()
-sift = cv2.ORB_create()
+# orb = cv2.ORB_create()
+sift = cv2.xfeatures2d.SIFT_create()
 
 dico = []
 
@@ -18,6 +19,7 @@ for leaf in train.id:
     print ("leaf",leaf)
     img = cv2.imread(img_path + str(leaf) + ".jpg")
     kp, des = sift.detectAndCompute(img, None)
+    # kp, des = orb.detectAndCompute(img, None)
 
     for d in des:
         dico.append(d)
@@ -39,6 +41,7 @@ for item in train:
     species = item[1]
     img = cv2.imread(img_path + str(leaf) + ".jpg")
     kp, des = sift.detectAndCompute(img, None)
+    # kp, des = orb.detectAndCompute(img, None)
 
     histo = np.zeros(k+2)
     nkp = np.size(kp)

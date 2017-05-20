@@ -9,4 +9,4 @@
 
 
 
-`leaf-classifier_NN_2.py` contains our MLP Classifier
+`leaf-classifier_NN_2.py` contains our MLP Classifier.
